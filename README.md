@@ -56,9 +56,13 @@ Other useful commands: `npm run build` (production build), `npm run lint`, and
 ### 2a. Create a project
 
 1. Sign up at <https://supabase.com> and click **New project**.
-2. Choose a name, a region near you, and the **Free** plan. Supabase asks for a
-   database password: save it in a password manager. This website never needs it.
-3. Wait a minute or two for the project to finish setting up.
+2. Choose a name (for example `art-portfolio`) and a region near you. Leave
+   **GitHub** empty. Supabase asks for a database password: save it in a password
+   manager. This website never needs it.
+3. Under **Security**, keep **Enable Data API** ticked; the site needs it. Untick
+   **Automatically expose new tables**, as Supabase recommends: the file in step 2b
+   gives the site exactly the access it needs. **Enable automatic RLS** is optional.
+4. Click **Create new project** and wait a minute or two for it to finish setting up.
 
 ### 2b. Create the database tables, storage, and access rules
 
