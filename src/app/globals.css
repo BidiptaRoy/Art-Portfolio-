@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f5f2eb;
+  --color-paper-deep: #ebe6dc;
+  --color-card: #fcfbf8;
+  --color-tile: #ece8df;
+  --color-ink: #1c1b19;
+  --color-ink-soft: #57534c;
+  --color-ink-faint: #8b867c;
+  --color-line: #ddd7cb;
+  --color-accent: #1d5e58;
+  --color-accent-soft: #dce9e5;
+  --color-danger: #a4372a;
+  --color-danger-soft: #f7e4e0;
+  --color-success: #2e6a3c;
+  --color-success-soft: #e1eee3;
+  --color-warning-soft: #f5ebd3;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--color-accent-soft);
+  }
+
+  dialog::backdrop {
+    background: rgb(28 27 25 / 0.5);
+  }
+}
+
+@utility bg-checker {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(45deg, #ece8df 25%, transparent 25%),
+    linear-gradient(-45deg, #ece8df 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #ece8df 75%),
+    linear-gradient(-45deg, transparent 75%, #ece8df 75%);
+  background-size: 20px 20px;
+  background-position:
+    0 0,
+    0 10px,
+    10px -10px,
+    -10px 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 50;
+  border-radius: 9999px;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
